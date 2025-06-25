@@ -12,9 +12,7 @@ services:
       SPRING_DATASOURCE_USERNAME: task-user
       SPRING_DATASOURCE_PASSWORD: task***
       SPRING_JPA_HIBERNATE_DDL_AUTO: none
-      GOOGLE_CLIENT_ID: 
-      GOOGLE_CLIENT_SECRET: 
-      APP_JWT_SECRET_KEY: 
+
 
   frontend:
     build:
