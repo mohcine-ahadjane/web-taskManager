@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./task-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/task-db
+      SPRING_DATASOURCE_USERNAME: task-user
+      SPRING_DATASOURCE_PASSWORD: task***
+      SPRING_JPA_HIBERNATE_DDL_AUTO: none
+      JWT_SECRET_KEY: 30bac526790dc49a3d12b115ad4059888e80530b9265a6fbf2395289a56b2a94
+
+  frontend:
+    build:
+      context: ./task-frontend
+    ports:
+      - "5173:80"
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: task-db
+      POSTGRES_USER: task-user
+      POSTGRES_PASSWORD: task***
+    ports:
+      - "5432:5432"
